@@ -26,7 +26,7 @@ Next we need cd to the Toolloa folder give permissions & install the toolloa
 ```bash
 cd Toolloa
 chmod +x install-toolloa.sh
-./installl-toolloa.sh
+./install-toolloa.sh
 ```
 🧐 Toolloa is installed now
 # Usage
