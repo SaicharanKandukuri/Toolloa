@@ -55,6 +55,7 @@ dont use <> symbols in installation command 🤦‍♂️
 - [ ] debian
 - [ ] void
 - [ ] Fedora
+- [ ] parrot os
 ## Tested & supported desktop environment
 - [x] xfce4
 - [x] mate
