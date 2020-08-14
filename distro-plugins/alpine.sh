@@ -33,7 +33,7 @@ distro_setup() {
 	# Uncomment this to run 'apk upgrade' during installation.
 	run_proot_cmd apk update
         run_proot_cmd apk upgrade
-        run_proot_cmd apk add dash
+        run_proot_cmd apk add bash
 
 
 
