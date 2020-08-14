@@ -68,5 +68,6 @@ Mostly looks like
 > @SaicharanKandukuri
 ###### First Creator
 > @xeffer
-Some scripts are took from [Andronix!](https://github.com/AndronixApp/AndronixOrigin)
+
+- Some scripts are took from [Andronix!](https://github.com/AndronixApp/AndronixOrigin)
 
