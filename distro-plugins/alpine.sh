@@ -31,6 +31,11 @@ distro_setup() {
 	# Run command within proot'ed environment with
 	# run_proot_cmd function.
 	# Uncomment this to run 'apk upgrade' during installation.
-	#run_proot_cmd apk upgrade
-	:
+	run_proot_cmd apk update
+        run_proot_cmd apk upgrade
+        run_proot_cmd apk add dash
+
+
+
+	
 }
