@@ -64,9 +64,9 @@ Mostly looks like
 🧐 More features comming soon
 -------
 # Devolopers & credits🥳
-###### Main
+###### ToolLOA creator
 > @SaicharanKandukuri
-###### First Creator
+###### First Creator (origin - proot-distro)
 > @xeffer
 
 - Some scripts are took from [Andronix!](https://github.com/AndronixApp/AndronixOrigin)
