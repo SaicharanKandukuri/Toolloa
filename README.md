@@ -34,7 +34,7 @@ chmod +x install-toolloa.sh
 ```bash
 toolloa install <distro-alias>
 ```
-### To login into your installed
+### To login into your installed distro
 ```bash
 toolloa login <distro-alias>
 ```
