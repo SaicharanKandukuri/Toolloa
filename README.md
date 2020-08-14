@@ -38,7 +38,8 @@ toolloa install <distro-alias>
 ```bash
 toolloa login <distro-alias>
 ```
-see in below brackets for distro-alias
+see in below brackets for distro-alias.
+dont use <> symbols 🤦‍♂️
 ## Avalible distros
 - [x] ubuntu 20.04 focal (ubuntu)
 - [x] kali nethunter-rootless (nethunter)
