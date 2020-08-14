@@ -30,11 +30,15 @@ chmod +x install-toolloa.sh
 ```
 🧐 Toolloa is installed now
 # Usage
-## To install a distro
+### To install a distro
 ```bash
-ToolLOA install <distro-name>
+toolloa install <distro-alias>
 ```
-see in below brackets for distro-name
+### To login into your installed
+```bash
+toolloa login <distro-alias>
+```
+see in below brackets for distro-alias
 ## Avalible distros
 - [x] ubuntu 20.04 focal (ubuntu)
 - [x] kali nethunter-rootless (nethunter)
