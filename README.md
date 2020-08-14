@@ -38,8 +38,12 @@ toolloa install <distro-alias>
 ```bash
 toolloa login <distro-alias>
 ```
-see in below brackets for distro-alias.
-dont use <> symbols 🤦‍♂️
+###### For example: if you want to install Ubuntu then command looks like
+```bash
+toolloa install Ubuntu
+```
+dont use <> symbols in installation command 🤦‍♂️
+###### see in below brackets for distro-alias.
 ## Avalible distros
 - [x] ubuntu 20.04 focal (ubuntu)
 - [x] kali nethunter-rootless (nethunter)
