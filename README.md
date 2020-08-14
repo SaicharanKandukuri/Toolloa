@@ -69,5 +69,5 @@ Mostly looks like
 ###### First source (origin - proot-distro)
 > @xeffer
 
-- Some scripts are took from [Andronix!](https://github.com/AndronixApp/AndronixOrigin)
+- Some code is took from [Andronix!](https://github.com/AndronixApp/AndronixOrigin)
 
