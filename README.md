@@ -58,8 +58,8 @@ see in below brackets for distro-alias
 - [ ] kde
 - [ ] gnome
 - [ ] unity
-### Iam are planning to make customized goodking xfce based DE
-Mostly look like 
+### Iam planning to make customized good looking xfce based DE
+Mostly looks like 
 ![A screenshot of the Arc-Darker theme](http://i.imgur.com/NC6dqyl.png)
 🧐 More features comming soon
 -------
