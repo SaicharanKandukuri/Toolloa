@@ -58,17 +58,15 @@ see in below brackets for distro-alias
 - [ ] kde
 - [ ] gnome
 - [ ] unity
-### Iam planning to make customized good looking xfce based DE
+###### Iam planning to make customized good looking xfce based DE
 Mostly looks like 
 ![A screenshot of the Arc-Darker theme](http://i.imgur.com/NC6dqyl.png)
 🧐 More features comming soon
 -------
 # Devolopers & credits🥳
-### Main
+###### Main
 > @SaicharanKandukuri
-### First Creator
+###### First Creator
 > @xeffer
--------
 Some scripts are took from [Andronix!](https://github.com/AndronixApp/AndronixOrigin)
-------
 
