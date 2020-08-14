@@ -15,7 +15,7 @@ get_download_url() {
 # for configuration.
 distro_setup() {
 folder=""
-folder=/data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/manjaro
+folder=/data/data/com.termux/files/usr/var/lib/toolloa/installed-rootfs/manjaro
 cat > $folder/etc/pacman.d/mirrorlist <<'EOL'
 ##
 ## Manjaro Linux repository mirrorlist
