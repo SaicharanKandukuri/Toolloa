@@ -63,4 +63,12 @@ Mostly looks like
 ![A screenshot of the Arc-Darker theme](http://i.imgur.com/NC6dqyl.png)
 🧐 More features comming soon
 -------
+# Devolopers & credits🥳
+### Main
+> @SaicharanKandukuri
+### First Creator
+> @xeffer
+-------
+Some scripts are took from [Andronix!](https://github.com/AndronixApp/AndronixOrigin)
+------
 
