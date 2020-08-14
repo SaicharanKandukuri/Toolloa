@@ -66,7 +66,7 @@ Mostly looks like
 # Devolopers & credits🥳
 ###### ToolLOA creator
 > @SaicharanKandukuri
-###### First Creator (origin - proot-distro)
+###### First source (origin - proot-distro)
 > @xeffer
 
 - Some scripts are took from [Andronix!](https://github.com/AndronixApp/AndronixOrigin)
