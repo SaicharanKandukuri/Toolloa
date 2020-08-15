@@ -33,5 +33,5 @@ distro_setup() {
 	# run_proot_cmd apt upgrade -yq
 	run_proot_cmd apt update
         run_proot_cmd apt update -yq
-        run_proot_com apt install sudo -yq
+        run_proot_cmd apt install sudo -yq
 }
