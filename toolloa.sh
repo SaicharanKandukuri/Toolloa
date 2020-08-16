@@ -873,7 +873,7 @@ show_version() {
 # This will be executed when signal HUP/INT/TERM is received.
 trap 'echo -e "\\r${BLUE}[${RED}!${BLUE}] ${CYAN}Exiting immediately as requested.${RST}"; exit 1;' HUP INT TERM
 
-for i in curl proot; do
+for i in axel proot; do
 	if [ -z "$(command -v "$i")" ]; then
 		echo
 		echo -e "${BRED}Utility '${i}' is not installed. Cannot continue.${RST}"
