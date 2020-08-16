@@ -200,8 +200,8 @@ command_install() {
 			# fail for some reason.
 			echo
 			rm -f "${DOWNLOAD_CACHE_DIR}/${tarball_name}.tmp"
-			if ! curl --fail --retry 5 --retry-connrefused --retry-delay 5 --location \
-				--output "${DOWNLOAD_CACHE_DIR}/${tarball_name}.tmp" "$download_url"; then
+			if ! axel \
+				-o "${DOWNLOAD_CACHE_DIR}/${tarball_name}.tmp" "$download_url"; then
 				echo -e "${BLUE}[${RED}!${BLUE}] ${CYAN}Download failure, please check your network connection.${RST}"
 				rm -f "${DOWNLOAD_CACHE_DIR}/${tarball_name}.tmp"
 				return 1
