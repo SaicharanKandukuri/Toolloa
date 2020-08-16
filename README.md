@@ -8,7 +8,7 @@ ToolLOA has some dependencies
 - proot ( to run distros )
 - ncurses-utils ( used for colours )
 - tar & bzip2 ( for extracting roots )
-- curl ( for downloading root file systems )
+- axel ( for downloading rootfs file systems )
 - git ( to copy this source )
 To install dependencies first upgrade your termux packages
 ```bash
@@ -16,7 +16,7 @@ apt update && apt upgrade -y
 ```
 Next install dependencies
 ```bash
-apt install bzip2 curl ncurses-utils tar proot git -y
+apt install bzip2 axel ncurses-utils tar proot git -y
 ```
 Next get the source of ToolLOA
 ```bash
