@@ -56,6 +56,9 @@ dont use <> symbols in installation command 🤦‍♂️
 - [ ] void
 - [ ] Fedora
 - [ ] parrot os
+### Screenshots
+###### Mate
+![A screenshot of working mate](https://raw.githubusercontent.com/1X1-Tech/Toolloa/extras/Screenshot_20200822-095049.png)
 ## Tested & supported desktop environment
 - [x] xfce4
 - [x] mate
