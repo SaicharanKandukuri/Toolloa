@@ -40,7 +40,7 @@ toolloa login <distro-alias>
 ```
 ###### For example: if you want to install Ubuntu then command looks like
 ```bash
-toolloa install Ubuntu
+toolloa install ubuntu
 ```
 dont use <> symbols in installation command 🤦‍♂️
 ###### see in below brackets for distro-alias.
