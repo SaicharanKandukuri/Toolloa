@@ -74,6 +74,8 @@ Mostly looks like
 # Devolopers & credits🥳
 ###### ToolLOA creator
 > @SaicharanKandukuri
+###### developers
+> @HACKINGSHARK99-AI
 ###### First source (origin - proot-distro)
 > @xeffyr
 
