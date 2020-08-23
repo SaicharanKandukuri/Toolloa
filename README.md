@@ -55,7 +55,6 @@ dont use <> symbols in installation command 🤦‍♂️
 - [ ] debian
 - [ ] void
 - [ ] Fedora
-- [ ] parrot os
 ### Screenshots
 ###### Mate
 ![A screenshot of working mate](https://raw.githubusercontent.com/1X1-Tech/Toolloa/extras/Screenshot_20200822-095049.png)
@@ -76,7 +75,7 @@ Mostly looks like
 ###### ToolLOA creator
 > @SaicharanKandukuri
 ###### First source (origin - proot-distro)
-> @xeffer
+> @xeffyr
 
 - Some code is took from [Andronix!](https://github.com/AndronixApp/AndronixOrigin)
 
