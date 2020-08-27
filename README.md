@@ -1,6 +1,6 @@
 # Toolloa
 ToolLOA is a modified version of proot-distro made to make linux installation for education purpose easier
-for termux
+in termux
 > ToolLOA = ( Tool Linux On Android )
 > ⚠️ This script dosent represents the final version of ToolLOA 
 # Installation
