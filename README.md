@@ -10,7 +10,7 @@ ToolLOA has some dependencies
 - tar & bzip2 ( for extracting roots )
 - axel ( for downloading rootfs file systems )
 - git ( to copy this source )
-To install dependencies first upgrade your termux packages
+To install dependencies first upgrade your termux package indexes
 ```bash
 apt update && apt upgrade -y
 ```
