@@ -113,7 +113,7 @@ Install_vlc() {
     else
     printf "\n> vlc [\e[1;32m OK \e[0m]"
     
-
+    fi
     #### setting up VLC to run in root
     sudo sed -i 's/geteuid/getppid' /usr/bin/vlc
 }
