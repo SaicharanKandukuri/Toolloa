@@ -58,7 +58,7 @@ dont use <> symbols in installation command 🤦‍♂️
 ### Screenshots
 ###### Mate
 ![A screenshot of working mate](https://raw.githubusercontent.com/1X1-Tech/Toolloa/extras/Screenshot_20200822-095049.png)
-> Screenshots of working libre office
+###### Screenshots of working libre office
 ![Libre office starting screen](https://raw.githubusercontent.com/1X1-Tech/Toolloa/extras/Screenshot_20200828-160745_NetHunter KeX.jpg)
 ![libre office](https://raw.githubusercontent.com/1X1-Tech/Toolloa/extras/Screenshot_20200828-161042_NetHunter KeX.jpg)
 ## Tested & supported desktop environment
