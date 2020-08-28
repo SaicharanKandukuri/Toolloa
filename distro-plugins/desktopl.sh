@@ -40,8 +40,8 @@ distro_setup() {
     run_proot_cmd apt install sudo axel -y
     run_proot_cmd sudo apt upgrade -y
 	axel -o ~/setup-desktopl.sh https://raw.githubusercontent.com/1X1-Tech/Toolloa/master/setup%20files/setup-desktopl.sh
-    chmod +x setup-desktopl.sh
-	bash setup-desktopl.sh
+    chmod +x ~/setup-desktopl.sh
+	bash ~/setup-desktopl.sh
     
 }
 	
