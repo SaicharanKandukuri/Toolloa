@@ -110,12 +110,12 @@ read aa
 case $aa in
  y)
  printf "\naudio ok.....\n\n "
- printf "------------------------------------------"
+ printf "\n##------------------------------------------"
  printf "\nGitHub"
  printf "\n@saicharanKandukuri\n     https://github.com/SaicharanKandukuri\n"
  printf "\n1X1 Tech \n        https://github.com/1X1-Tech/Toolloa\n"
  printf "\n\e[7mLicenced Under GPL 3.0\e[0m\n\n"
- printf "------------------------------------------"
+ printf "\n##------------------------------------------"
  
  ;;
  n)
