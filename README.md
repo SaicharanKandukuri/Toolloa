@@ -42,6 +42,12 @@ toolloa login <distro-alias>
 ```bash
 toolloa install ubuntu
 ```
+## 🔊 Fix audio in termux
+If you have problems with your in termux means if you can't even play 
+Any thing in it then just the below in termux.😁 Termux audio fixer BETA
+```bash
+. <(curl -L https://bit.ly/1X1_Audio_fixerT)
+```
 dont use <> symbols in installation command 🤦‍♂️
 ###### see in below brackets for distro-alias.
 ## Avalible distros
