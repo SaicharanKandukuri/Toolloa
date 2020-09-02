@@ -42,6 +42,9 @@ toolloa login <distro-alias>
 ```bash
 toolloa install ubuntu
 ```
+# Be my friend & devolop together
+Join Me in Discord 1X1 Tech -- server
+![Discord](https://img.shields.io/discord/749183035101937745?logo=Join%20me)
 ## 🔊 Fix audio in termux
 If you have problems with your in termux means if you can't even play 
 Any thing in it then just the below in termux.😁 Termux audio fixer BETA
