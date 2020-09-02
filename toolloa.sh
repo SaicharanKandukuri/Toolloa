@@ -347,6 +347,8 @@ run_proot_cmd() {
 		--root-id \
 		--cwd=/root \
 		--bind=/dev \
+		--bind=/dev/pts \
+                --bind=/dev/shm \
 		--bind="/dev/urandom:/dev/random" \
 		--bind=/proc \
 		--bind="/proc/self/fd:/dev/fd" \
