@@ -43,7 +43,7 @@ toolloa login <distro-alias>
 toolloa install ubuntu
 ```
 # Be my friend & devolop together
-Join Me in Discord 1X1 Tech -- server
+Join Me in [Discord!](https://discord.gg/sb4PWgs) 1X1 Tech -- server
 ![Discord](https://img.shields.io/discord/749183035101937745?logo=Join%20me)
 ## 🔊 Fix audio in termux
 If you have problems with your in termux means if you can't even play 
