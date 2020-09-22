@@ -102,7 +102,9 @@ fi
 if [ ! $(command -v wget) ]; then
 apt install wget -y 
 fi
-wget -q -o minions.mp3 https://raw.githubusercontent.com/1X1-Tech/Toolloa/extras/Minions_intro_movie-11df12af-5e51-3c55-807d-b4718ec7ab05.mp3
+case $sound_trail in
+    "")
+    wget -q -o minions.mp3 https://raw.githubusercontent.com/1X1-Tech/Toolloa/extras/Minions_intro_movie-11df12af-5e51-3c55-807d-b4718ec7ab05.mp3
 
 play Minions_intro_movie-11df12af-5e51-3c55-807d-b4718ec7ab05.mp3
 printf "did you hear minions sound [y/n] : "
@@ -122,6 +124,10 @@ case $aa in
  printf "\nWe are constantly working on audio please contact us and share your log\n"
  ;;
  *)
+ ;;
+ esac
+ ;;
+ NO)
  ;;
  esac
  ##########################################
