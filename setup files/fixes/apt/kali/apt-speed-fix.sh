@@ -54,8 +54,9 @@ cd $HOME
 ## setting up name server
 ## /etc/resolv.conf
 cat > resolv.conf <<- 'EndOfFile'
-nameserver 1.1.1.1
-nameserver 1.1.8.8
+# Google nameservers (fastest i know)
+nameserver 8.8.8.8
+nameserver 8.8.4.4
 EndOfFile
 
 ###############################################
