@@ -243,5 +243,5 @@ cp sudoers /etc/
 printf "\n> $USER_NAME IS added"
 
 }
-#Dependencies
-install_vs_code
+Dependencies
+
