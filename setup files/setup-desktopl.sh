@@ -54,7 +54,7 @@ function DE(){
     ### ##########
     Install_chromium
     Install_vlc
-    installcode_oss
+    install_vs_code
     Install_Libre
     ##### Cleaning
     sudo apt autoclean
@@ -118,12 +118,48 @@ setup_stopvnc() {
 	EndOfFile
 	}
 # APP functios
-installcode_oss() {
+install_vs_code() {
 		printf "\nsleeping 5 seconds before installing Code-oss"
-		printf "\n> Installing Visual studio (code-oss)...\n"
-		
-        . <( wget -O - https://code.headmelted.com/installers/apt.sh )
-          rm -rf /etc/apt/sources.list.d/headmelted_vscode.list
+        sleep 5
+		printf "\n> Installing Official Visual studio ...\n"
+        sleep 2
+		# link of latest version https://az764295.vo.msecnd.net/stable/d2e414d9e4239a252d1ab117bd7067f125afd80a/code_1.50.1-1602600638_arm64.deb
+        # https://az764295.vo.msecnd.net/stable/d2e414d9e4239a252d1ab117bd7067f125afd80a/code_1.50.1-1602600660_armhf.deb
+
+        vs_arm64="https://az764295.vo.msecnd.net/stable/d2e414d9e4239a252d1ab117bd7067f125afd80a/code_1.50.1-1602600638_arm64.deb"
+        vs_armhf="https://az764295.vo.msecnd.net/stable/d2e414d9e4239a252d1ab117bd7067f125afd80a/code_1.50.1-1602600660_armhf.deb"
+        vs_amd64="https://az764295.vo.msecnd.net/stable/d2e414d9e4239a252d1ab117bd7067f125afd80a/code_1.50.1-1602600906_amd64.deb"
+
+        Filename="Visual_code_release_0v_1.50.1$(uname -m).deb"
+        
+        function vsinstall() {   
+           axel -o ${HOME}/${Filename} ${link}
+           
+           sudo apt install -y ${HOME}/${Filename}
+           }
+
+        
+
+        case $(uname -m) in
+        aarch64)
+        link="${vs_arm64}"
+        vsinstall
+        ;;
+        armv7l|armv8l)
+        link="${vs_armhf}"
+        vsinstall
+        ;;
+        x86_64)
+        link="${vs_amd64}"
+        vsinstall
+        ;;
+        *)
+        printf"\n    * \e[1;31m arch $(uname -m) is not supported \e[0m \n"
+        ;;
+        esac
+
+        
+       
 }
 Install_vlc() {
     printf "\n> Installing VLC\n"
@@ -207,4 +243,5 @@ cp sudoers /etc/
 printf "\n> $USER_NAME IS added"
 
 }
-Dependencies
+#Dependencies
+install_vs_code
