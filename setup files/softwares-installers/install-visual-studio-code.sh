@@ -9,7 +9,7 @@
 ##################################################################
 
 
-printf "\n> Setting Variables \r"
+printf "\n> Setting Variables \n"
 #######################################################
 # CONFIGS
      
@@ -28,7 +28,7 @@ filelocation="${HOME}/${Filename}"
 
 function chech_arch() {
     local arch
-    printf "Checking Device arch \r"
+    printf "Checking Device arch \n"
     case $(uname -m) in
     aarch64)
     download_code="vs_arm64"
@@ -48,7 +48,7 @@ function chech_arch() {
     esac
 }
 function check_device() {
-    printf "Checking Shell path /r"
+    printf "Checking Shell path \n"
     case ${SHELL} in
     /bin/*) 
     chech_arch
