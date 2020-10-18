@@ -46,6 +46,9 @@ toolloa install ubuntu
 Join Me in [Discord!](https://discord.gg/sb4PWgs) 1X1 Tech -- server
 ![Discord](https://img.shields.io/discord/749183035101937745?logo=Join%20me)
 You can share problems,bugs & ideas to improve toolloa with me! We are Open.
+## 🛒 Toolloa app installers
+###### Visual code studio
+> Comming soon
 ## 🔊 Fix audio in termux
 If you have problems with your in termux means if you can't even play 
 Any thing in it then just the below in termux.😁 Termux audio fixer BETA
