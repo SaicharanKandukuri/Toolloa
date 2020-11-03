@@ -48,14 +48,14 @@ Join Me in [Discord!](https://discord.gg/sb4PWgs) 1X1 Tech -- server
 You can share problems,bugs & ideas to improve toolloa with me! We are Open.
 ## 🛒 Toolloa app installers
 ###### Visual code studio
-> Comming soon
+```bash
+. <(curl -L http://bit.ly/1x1_install_vscode)
 ## 🔊 Fix audio in termux
 If you have problems with your in termux means if you can't even play 
 Any thing in it then just the below in termux.😁 Termux audio fixer BETA
 ```bash
 . <(curl -L https://bit.ly/1X1_Audio_fixerT)
 ```
-dont use <> symbols in installation command 🤦‍♂️
 ###### see in below brackets for distro-alias.
 ## Avalible distros
 - [x] ubuntu 20.04 focal (ubuntu)
