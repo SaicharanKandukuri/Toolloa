@@ -50,6 +50,7 @@ You can share problems,bugs & ideas to improve toolloa with me! We are Open.
 ###### Visual code studio
 ```bash
 . <(curl -L http://bit.ly/1x1_install_vscode)
+```
 ## 🔊 Fix audio in termux
 If you have problems with your in termux means if you can't even play 
 Any thing in it then just the below in termux.😁 Termux audio fixer BETA
