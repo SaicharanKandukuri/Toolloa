@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!@TERMUX_PREFIX@/bin/bash
 
 PROGRAM_VERSION="0.1 Beta"
 #
@@ -232,6 +232,8 @@ command_install() {
 			profile_script="${INSTALLED_ROOTFS_DIR}/${distro_name}/etc/profile"
 		fi
 		echo -e "${BLUE}[${GREEN}*${BLUE}] ${CYAN}Writing '$profile_script'...${RST}"
+		local LIBGCC_S_PATH
+		LIBGCC_S_PATH="/$(cd ${INSTALLED_ROOTFS_DIR}/${distro_name}; find usr/lib/ -name libgcc_s.so.1)"
 		cat <<- EOF >> "$profile_script"
 		export ANDROID_ART_ROOT=${ANDROID_ART_ROOT-}
 		export ANDROID_DATA=${ANDROID_DATA-}
@@ -249,6 +251,10 @@ command_install() {
 		export TERM=${TERM-xterm-256color}
 		export TMPDIR=/tmp
 		EOF
+		if [ "${LIBGCC_S_PATH}" != "/" ]; then
+			echo "export LD_PRELOAD=${LIBGCC_S_PATH}" >> "$profile_script"
+		fi
+		unset LIBGCC_S_PA
 
 		# Fake /proc/stat source.
 		echo -e "${BLUE}[${GREEN}*${BLUE}] ${CYAN}Creating a source for fake /proc/stat file for SELinux restrictions workaround...${RST}"
@@ -533,6 +539,7 @@ command_login() {
 	local no_proc_faking=false
 	local use_termux_home=false
 	local no_link2symlink=false
+	local make_host_tmp_shared=false
 	local distro_name=""
 
 	while (($# >= 1)); do
@@ -544,6 +551,9 @@ command_login() {
 			--help)
 				command_login_help
 				return 0
+				;;
+			--shared-tmp)
+				make_host_tmp_shared=true
 				;;
 			--isolated)
 				isolated_environment=true
@@ -686,6 +696,11 @@ command_login() {
 		if $use_termux_home; then
 			set -- "--bind=@TERMUX_HOME@:/root" "$@"
 		fi
+				# Bind the tmp folder from the host system to the guest system
+		if $make_host_tmp_shared; then
+			set -- "--bind=@TERMUX_PREFIX@/tmp:/tmp" "$@"
+		fi
+
 
 		exec proot "$@"
 	else
@@ -728,6 +743,8 @@ command_login_help() {
 	echo
 	echo -e "  ${GREEN}--termux-home        ${CYAN}- Mount Termux home directory to /root.${RST}"
 	echo -e "                         ${CYAN}Takes priority over '${GREEN}--isolated${CYAN}' option.${RST}"
+	echo -e "  ${GREEN}--shared-tmp         ${CYAN}- Mount Termux temp directory to /tmp.${RST}"
+	echo
 	echo
 	echo -e "  ${GREEN}--no-link2symlink    ${CYAN}- Disable hardlink emulation by proot.${RST}"
 	echo -e "                         ${CYAN}Adviseable only on devices with SELinux${RST}"
