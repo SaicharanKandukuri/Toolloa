@@ -10,13 +10,13 @@ get_download_url() {
 	# Ubuntu Focal does not provide tarballs for x86 32bit.
 	case "$(uname -m)" in
 		aarch64)
-			echo "https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-arm64.tar.gz"
+			echo "https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-arm64-root.tar.xz"
 			;;
 		armv7l|armv8l)
-			echo "https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-armhf.tar.gz"
+			echo "https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-armhf-root.tar.xz"
 			;;
 		x86_64)
-			echo "https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64.tar.gz"
+			echo "https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64-root.tar.xz"
 			;;
 	esac
 }
