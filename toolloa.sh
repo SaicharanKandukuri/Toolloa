@@ -7,7 +7,7 @@ Commit_state="0.01"
 #############################################################################
 # Check_Update Probe(Auto updater)
 
-if $(command -v updatetoolloaprobe; echo $?); then
+if [ $(updatetoolloaprobe) ]; then
   updatetoolloaprobe
 fi
 
