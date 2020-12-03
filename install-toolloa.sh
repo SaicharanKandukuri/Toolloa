@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+
+script_version="0.1"
+commit_state="0.01"
+
 set -e
 : "${TERMUX_PREFIX:=/data/data/com.termux/files/usr}"
 : "${TERMUX_ANDROID_HOME:=/data/data/com.termux/files/home}"

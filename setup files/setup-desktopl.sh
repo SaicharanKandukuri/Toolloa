@@ -1,4 +1,8 @@
 #!/bin/bash
+
+script_version="0.1"
+commit_state="0.01"
+
 printf "\n[@]Starting setup...."
 function Dependencies() {
     if [ ! $(command -v sudo) ]; then

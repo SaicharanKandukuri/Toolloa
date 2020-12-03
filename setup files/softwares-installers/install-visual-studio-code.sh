@@ -1,4 +1,7 @@
 
+
+commit_state="0.01"
+
 ##################################################################
 # Warning This is not a official installer from microsoft.
 # All rights of visual code studio reserved to team microsoft

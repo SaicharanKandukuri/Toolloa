@@ -1,7 +1,15 @@
 #!@TERMUX_PREFIX@/bin/bash
 
-PROGRAM_VERSION="0.1 Beta"
-#
+PROGRAM_VERSION="0.2 Beta"
+
+Commit_state="0.01"
+
+#############################################################################
+# Check_Update Probe(Auto updater)
+
+if $(command -v updatetoolloaprobe; echo $?); then
+  updatetoolloaprobe
+fi
 
 #############################################################################
 #
@@ -106,16 +114,53 @@ is_distro_installed() {
 #
 command_install() {
 	local distro_name
+	local override_alias
+	local distro_plugin_script
 
-	if [ $# -ge 1 ]; then
+	while (($# >= 1)); do
 		case "$1" in
-			-h|--help)
+			--)
+				shift 1
+				break
+				;;
+			--help)
 				command_install_help
 				return 0
 				;;
-			*) distro_name="$1";;
+			--override-alias)
+				if [ $# -ge 2 ]; then
+					shift 1
+					override_alias="$1"
+				else
+					echo
+					echo -e "${BRED}Error: option '${YELLOW}$1${BRED}' requires an argument.${RST}"
+					command_install_help
+					return 1
+				fi
+				;;
+			-*)
+				echo
+				echo -e "${BRED}Error: unknown option '${YELLOW}${1}${BRED}'.${RST}"
+				command_install_help
+				return 1
+				;;
+			*)
+				if [ -z "${distro_name-}" ]; then
+					distro_name="$1"
+				else
+					echo
+					echo -e "${BRED}Error: unknown option '${YELLOW}${1}${BRED}'.${RST}"
+					echo
+					echo -e "${BRED}Error: you have already set distribution as '${YELLOW}${distro_name}${BRED}'.${RST}"
+					command_install_help
+					return 1
+				fi
+				;;
 		esac
-	else
+		shift 1
+	done
+
+	if [ -z "${distro_name-}" ]; then
 		echo
 		echo -e "${BRED}Error: distribution alias is not specified.${RST}"
 		command_install_help
@@ -131,6 +176,24 @@ command_install() {
 		return 1
 	fi
 
+	if [ -n "${override_alias-}" ]; then
+		if [ ! -e "${DISTRO_PLUGINS_DIR}/${override_alias}.sh" ]; then
+			echo -e "${BLUE}[${GREEN}*${BLUE}] ${CYAN}Creating file '${DISTRO_PLUGINS_DIR}/${override_alias}.sh'...${RST}"
+			distro_plugin_script="${DISTRO_PLUGINS_DIR}/${override_alias}.override.sh"
+			cp "${DISTRO_PLUGINS_DIR}/${distro_name}.sh" "${distro_plugin_script}"
+			sed -i "s/^\(DISTRO_NAME=\)\(.*\)\$/\1\"${SUPPORTED_DISTRIBUTIONS["$distro_name"]} (override)\"/g" "${distro_plugin_script}"
+			SUPPORTED_DISTRIBUTIONS["${override_alias}"]="${SUPPORTED_DISTRIBUTIONS["$distro_name"]}"
+			distro_name="${override_alias}"
+		else
+			echo
+			echo -e "${BRED}Error: you cannot use value '${YELLOW}${override_alias}${BRED}' as alias override.${RST}"
+			echo
+			return 1
+		fi
+	else
+		distro_plugin_script="${DISTRO_PLUGINS_DIR}/${distro_name}.sh"
+	fi
+
 	if is_distro_installed "$distro_name"; then
 		echo
 		echo -e "${BRED}Error: distribution '${YELLOW}${distro_name}${BRED}' is already installed.${RST}"
@@ -142,7 +205,7 @@ command_install() {
 		return 1
 	fi
 
-	if [ -f "${DISTRO_PLUGINS_DIR}/${distro_name}.sh" ]; then
+	if [ -f "${distro_plugin_script}" ]; then
 		echo -e "${BLUE}[${GREEN}*${BLUE}] ${CYAN}Installing ${YELLOW}${SUPPORTED_DISTRIBUTIONS["$distro_name"]}${CYAN}...${RST}"
 
 		if [ ! -d "${INSTALLED_ROOTFS_DIR}/${distro_name}" ]; then
@@ -167,14 +230,14 @@ command_install() {
 
 		# Distribution plug-in contains steps on how to get download URL
 		# and further post-installation configuration.
-		source "${DISTRO_PLUGINS_DIR}/${distro_name}.sh"
+		source "${distro_plugin_script}"
 
 		local download_url
 		if declare -f -F get_download_url >/dev/null 2>&1; then
 			download_url=$(get_download_url)
 		else
 			echo
-			echo -e "${BRED}Error: get_download_url() is not defined in ${DISTRO_PLUGINS_DIR}/${distro_name}.sh${RST}"
+			echo -e "${BRED}Error: get_download_url() is not defined in ${distro_plugin_script}${RST}"
 			echo
 			return 1
 		fi
@@ -255,7 +318,7 @@ command_install() {
 			echo "${LIBGCC_S_PATH}" >> "${INSTALLED_ROOTFS_DIR}/${distro_name}/etc/ld.so.preload"
 			chmod 644 "${INSTALLED_ROOTFS_DIR}/${distro_name}/etc/ld.so.preload"
 		fi
-		unset LIBGCC_S_PA
+		unset LIBGCC_S_PATH
 
 		# Fake /proc/stat source.
 		echo -e "${BLUE}[${GREEN}*${BLUE}] ${CYAN}Creating a source for fake /proc/stat file for SELinux restrictions workaround...${RST}"
@@ -331,7 +394,7 @@ command_install() {
 		echo
 		return 0
 	else
-		echo -e "${BLUE}[${RED}!${BLUE}] ${CYAN}Cannot find '${DISTRO_PLUGINS_DIR}/${distro_name}.sh' which contains distro-specific install functions.${RST}"
+		echo -e "${BLUE}[${RED}!${BLUE}] ${CYAN}Cannot find '${distro_plugin_script}' which contains distro-specific install functions.${RST}"
 		return 1
 	fi
 }
@@ -354,8 +417,6 @@ run_proot_cmd() {
 		--root-id \
 		--cwd=/root \
 		--bind=/dev \
-		--bind=/dev/pts \
-                --bind=/dev/shm \
 		--bind="/dev/urandom:/dev/random" \
 		--bind=/proc \
 		--bind="/proc/self/fd:/dev/fd" \
@@ -381,6 +442,13 @@ command_install_help() {
 	echo
 	echo -e "${CYAN}This command will create a fresh installation of specified Linux${RST}"
 	echo -e "${CYAN}distribution.${RST}"
+	echo
+	echo -e "${CYAN}Options:${RST}"
+	echo
+	echo -e "  ${GREEN}--help               ${CYAN}- Show this help information.${RST}"
+	echo
+	echo -e "  ${GREEN}--override-alias [new alias]   ${CYAN}- Set a custom alias for installed${RST}"
+	echo -e "                                   ${CYAN}distribution.${RST}"
 	echo
 	echo -e "${CYAN}Selected distribution should be referenced by alias which can be${RST}"
 	echo -e "${CYAN}obtained by this command: ${GREEN}$PROGRAM_NAME list${RST}"
@@ -431,6 +499,12 @@ command_remove() {
 		echo -e "${BRED}Error: distribution '${YELLOW}${distro_name}${BRED}' is not installed.${RST}"
 		echo
 		return 1
+	fi
+
+	# Delete plugin with overridden alias.
+	if [ -e "${DISTRO_PLUGINS_DIR}/${distro_name}.override.sh" ]; then
+		echo -e "${BLUE}[${GREEN}*${BLUE}] ${CYAN}Deleting ${DISTRO_PLUGINS_DIR}/${distro_name}.override.sh...${RST}"
+		rm -f "${DISTRO_PLUGINS_DIR}/${distro_name}.override.sh"
 	fi
 
 	echo -e "${BLUE}[${GREEN}*${BLUE}] ${CYAN}Wiping the rootfs of ${YELLOW}${SUPPORTED_DISTRIBUTIONS["$distro_name"]}${CYAN}...${RST}"
@@ -540,6 +614,8 @@ command_login() {
 	local no_proc_faking=false
 	local use_termux_home=false
 	local no_link2symlink=false
+	local no_sysvipc=true
+	local fix_low_ports=false
 	local make_host_tmp_shared=false
 	local distro_name=""
 
@@ -553,8 +629,8 @@ command_login() {
 				command_login_help
 				return 0
 				;;
-			--shared-tmp)
-				make_host_tmp_shared=true
+			--fix-low-ports)
+				fix_low_ports=true
 				;;
 			--isolated)
 				isolated_environment=true
@@ -565,8 +641,14 @@ command_login() {
 			--termux-home)
 				use_termux_home=true
 				;;
+			--shared-tmp)
+				make_host_tmp_shared=true
+				;;
 			--no-link2symlink)
 				no_link2symlink=true
+				;;
+			--enable-sysvipc)
+				no_sysvipc=false
 				;;
 			-*)
 				echo
@@ -643,8 +725,15 @@ command_login() {
 			set -- "--link2symlink" "$@"
 		fi
 
+		if ! $no_sysvipc; then
+			# Support System V IPC.
+			set -- "--sysvipc" "$@"
+		fi
+
 		# Some devices have old kernels and GNU libc refuses to work on them.
 		# Fix this behavior by reporting a fake up-to-date kernel version.
+		
+
 		set -- "--kernel-release=5.4.0-fake-kernel" "$@"
 
 		# Simulate root so we can switch users.
@@ -697,11 +786,17 @@ command_login() {
 		if $use_termux_home; then
 			set -- "--bind=@TERMUX_HOME@:/root" "$@"
 		fi
-				# Bind the tmp folder from the host system to the guest system
+
+		# Bind the tmp folder from the host system to the guest system
+		# Ignores --isolated.
 		if $make_host_tmp_shared; then
 			set -- "--bind=@TERMUX_PREFIX@/tmp:/tmp" "$@"
 		fi
 
+		# Modify bindings to protected ports to use a higher port number.
+		if $fix_low_ports; then
+			set -- "-p" "$@"
+		fi
 
 		exec proot "$@"
 	else
@@ -735,6 +830,9 @@ command_login_help() {
 	echo
 	echo -e "  ${GREEN}--help               ${CYAN}- Show this help information.${RST}"
 	echo
+	echo -e "  ${GREEN}--fix-low-ports      ${CYAN}- Modify bindings to protected ports to use${RST}"
+	echo -e "                         ${CYAN}a higher port number.${RST}"
+	echo
 	echo -e "  ${GREEN}--isolated           ${CYAN}- Run isolated environment without access${RST}"
 	echo -e "                         ${CYAN}to host file system.${RST}"
 	echo
@@ -744,12 +842,15 @@ command_login_help() {
 	echo
 	echo -e "  ${GREEN}--termux-home        ${CYAN}- Mount Termux home directory to /root.${RST}"
 	echo -e "                         ${CYAN}Takes priority over '${GREEN}--isolated${CYAN}' option.${RST}"
-	echo -e "  ${GREEN}--shared-tmp         ${CYAN}- Mount Termux temp directory to /tmp.${RST}"
 	echo
+	echo -e "  ${GREEN}--shared-tmp         ${CYAN}- Mount Termux temp directory to /tmp.${RST}"
+	echo -e "                         ${CYAN}Takes priority over '${GREEN}--isolated${CYAN}' option.${RST}"
 	echo
 	echo -e "  ${GREEN}--no-link2symlink    ${CYAN}- Disable hardlink emulation by proot.${RST}"
 	echo -e "                         ${CYAN}Adviseable only on devices with SELinux${RST}"
 	echo -e "                         ${CYAN}in permissive mode.${RST}"
+	echo
+	echo -e "  ${GREEN}--enable-sysvipc         ${CYAN}- Enable System V IPC emulation by proot.${RST}"
 	echo
 	echo -e "${CYAN}Put '${GREEN}--${CYAN}' if you wish to stop command line processing and pass${RST}"
 	echo -e "${CYAN}options as shell arguments.${RST}"
@@ -876,7 +977,7 @@ command_help() {
 # usage info.
 #
 show_version() {
-	echo -e "${ICYAN}ToolLOA v${PROGRAM_VERSION} by ${CYAN} ${BYELLOW} @saicharanKandukuri${RST}\nscript logic & Main souce from\n ${BYELLOW} @xeffer${RST} \nIn script resouces from\n ${BYELLOW} Andronix ${RST}"
+	echo -e "${ICYAN}Toolloa v${PROGRAM_VERSION} by @Saicharan @HACKINGSHARK99-AI and @xeffyr.${RST}"
 }
 
 #############################################################################
@@ -908,7 +1009,12 @@ declare -A SUPPORTED_DISTRIBUTIONS_COMMENTS
 while read -r filename; do
 	distro_name=$(. "$filename"; echo "${DISTRO_NAME-}")
 	distro_comment=$(. "$filename"; echo "${DISTRO_COMMENT-}")
-	distro_alias=${filename%%.sh}
+	# May have 2 name formats:
+	# * alias.override.sh
+	# * alias.sh
+	# but we need to treat both as 'alias'.
+	distro_alias=${filename%%.override.sh}
+	distro_alias=${distro_alias%%.sh}
 	distro_alias=$(basename "$distro_alias")
 
 	# We getting distribution name from $DISTRO_NAME which
