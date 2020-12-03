@@ -4,7 +4,7 @@ in termux
 > ToolLOA = ( Tool Linux On Android )
 > ⚠️ This script dosent represents the final version of ToolLOA 
 # NOTICE!
-> This project is going to be restructured and recoded according to new termux features please stand by(v0.0.2 Beta)
+> This project is going to be restructured and recoded according to new termux features please stand by(v0.2 Beta)
 # Installation
 ToolLOA has some dependencies
 - proot ( to run distros )
