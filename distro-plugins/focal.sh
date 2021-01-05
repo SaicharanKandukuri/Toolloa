@@ -32,7 +32,4 @@ distro_setup() {
 	# Uncomment this to do system upgrade during installation.
 	# run_proot_cmd apt update
 	# run_proot_cmd apt upgrade -yq
-	run_proot_cmd apt update
-        run_proot_cmd apt update -yq
-        run_proot_cmd apt install sudo -yq
 }
