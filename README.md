@@ -40,25 +40,20 @@ toolloa install Ubuntu
 dont use <> symbols in installation command 🤦‍♂️
 ###### see in below brackets for distro-alias.
 ## Avalible distros
-- [x] ubuntu 20.04 focal (ubuntu)
+- [x] ubuntu 20.10 groovy (groovy)
+- [x] ubuntu 20.04 focal (focal)
+- [x] ubuntu 18.04 bionic (bionic)
 - [x] kali nethunter-rootless (nethunter)
 - [x] alpine (alpine)
 - [x] arch Linux (archlinux)
-- [x] Manjaro arm64 (manjaro)
-- [ ] Manjaro amd64
-- [ ] Manjaro armvl7
-- [ ] debian
-- [ ] void
-- [ ] Fedora
-- [ ] parrot os
+
 ## Tested & supported desktop environment
 - [x] xfce4
 - [x] mate
 - [x] lxde
 - [x] lxqt
-- [ ] kde
-- [ ] gnome
-- [ ] unity
+
+
 # Devolopers & credits🥳
 ###### ToolLOA creator
 > @SaicharanKandukuri

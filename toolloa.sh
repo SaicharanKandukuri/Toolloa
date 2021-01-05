@@ -4,6 +4,8 @@ PROGRAM_VERSION="0.2 Beta"
 
 Commit_state="0.01"
 
+#[Original_Source] [https://github.com/termux/proot-distro]
+
 #############################################################################
 # Check_Update Probe(Auto updater)
 
@@ -618,6 +620,8 @@ command_login() {
 	local fix_low_ports=false
 	local make_host_tmp_shared=false
 	local distro_name=""
+    export PULSE_SERVER=127.0.0.1
+
 
 	while (($# >= 1)); do
 		case "$1" in
