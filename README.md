@@ -36,7 +36,6 @@ toolloa login <distro-alias>
 ```bash
 toolloa install Ubuntu
 ```
-dont use <> symbols in installation command 🤦‍♂️
 ###### see in below brackets for distro-alias.
 ## Avalible distros
 - [x] ubuntu 20.04 focal (ubuntu)
