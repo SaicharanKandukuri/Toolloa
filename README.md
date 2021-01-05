@@ -1,4 +1,4 @@
-# Toolloa (Old read me )
+# Toolloa
 ToolLOA is a modified version of proot-distro made to make linux installation for education purpose easier
 for termux
 > ToolLOA = ( Tool Linux On Android )
@@ -43,25 +43,8 @@ dont use <> symbols in installation command 🤦‍♂️
 - [x] kali nethunter-rootless (nethunter)
 - [x] alpine (alpine)
 - [x] arch Linux (archlinux)
-- [x] Manjaro arm64 (manjaro)
-- [ ] Manjaro amd64
-- [ ] Manjaro armvl7
-- [ ] debian
-- [ ] void
-- [ ] Fedora
-- [ ] parrot os
 ## Tested & supported desktop environment
 - [x] xfce4
 - [x] mate
 - [x] lxde
 - [x] lxqt
-- [ ] kde
-- [ ] gnome
-- [ ] unity
-# Devolopers & credits🥳
-###### ToolLOA creator
-> @SaicharanKandukuri
-###### First source (origin - proot-distro)
-> @xeffer
-
-- Some code is took from [Andronix!](https://github.com/AndronixApp/AndronixOrigin)
