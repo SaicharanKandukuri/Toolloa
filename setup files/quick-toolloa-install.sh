@@ -1,7 +1,7 @@
 #!/bin/bash
 apt_exit_status=$(apt install axel ; echo $?)
 
-if (($apt_exit_status == 100)); then
+if [[ $apt_exit_status == 100 ]]; then
     apt update && apt upgrade -y
 else
     apt upgrade -y
