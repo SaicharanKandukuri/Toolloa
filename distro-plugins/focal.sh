@@ -30,6 +30,9 @@ distro_setup() {
 	# Run command within proot'ed environment with
 	# run_proot_cmd function.
 	# Uncomment this to do system upgrade during installation.
-	 run_proot_cmd apt update
-	 run_proot_cmd apt upgrade -yq
+	# run_proot_cmd apt update
+	# run_proot_cmd apt upgrade -yq
+
+	:
+
 }
