@@ -1,5 +1,3 @@
-# Toolloa (Old read me )
-[ Warning this a work in progress branch ]
 ToolLOA is a modified version of proot-distro made to make linux installation for education purpose easier
 for termux
 > ToolLOA = ( Tool Linux On Android )
@@ -37,7 +35,6 @@ toolloa login <distro-alias>
 ```bash
 toolloa install Ubuntu
 ```
-dont use <> symbols in installation command 🤦‍♂️
 ###### see in below brackets for distro-alias.
 ## Avalible distros
 - [x] ubuntu 20.10 groovy (groovy)
@@ -46,18 +43,8 @@ dont use <> symbols in installation command 🤦‍♂️
 - [x] kali nethunter-rootless (nethunter)
 - [x] alpine (alpine)
 - [x] arch Linux (archlinux)
-
 ## Tested & supported desktop environment
 - [x] xfce4
 - [x] mate
 - [x] lxde
 - [x] lxqt
-
-
-# Devolopers & credits🥳
-###### ToolLOA creator
-> @SaicharanKandukuri
-###### First source (origin - proot-distro)
-> @xeffer
-
-- Some code is took from [Andronix!](https://github.com/AndronixApp/AndronixOrigin)
