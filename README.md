@@ -1,4 +1,3 @@
-# Toolloa
 ToolLOA is a modified version of proot-distro made to make linux installation for education purpose easier
 for termux
 > ToolLOA = ( Tool Linux On Android )
@@ -38,7 +37,9 @@ toolloa install Ubuntu
 ```
 ###### see in below brackets for distro-alias.
 ## Avalible distros
-- [x] ubuntu 20.04 focal (ubuntu)
+- [x] ubuntu 20.10 groovy (groovy)
+- [x] ubuntu 20.04 focal (focal)
+- [x] ubuntu 18.04 bionic (bionic)
 - [x] kali nethunter-rootless (nethunter)
 - [x] alpine (alpine)
 - [x] arch Linux (archlinux)

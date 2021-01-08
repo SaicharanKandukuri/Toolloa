@@ -1,22 +1,22 @@
 ##
-## Plug-in for installing Ubuntu Focal (20.04).
+## Plug-in for installing Ubuntu groovy (20.04).
 ##
 
-DISTRO_NAME="Ubuntu 20.04"
+DISTRO_NAME="Ubuntu 20.10(Groovy)"
 Commit_state="0.01"
 
 # Returns download URL.
 get_download_url() {
-	# Ubuntu Focal does not provide tarballs for x86 32bit.
+	# Ubuntu groovy does not provide tarballs for x86 32bit.
 	case "$(uname -m)" in
 		aarch64)
-			echo "https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-arm64-root.tar.xz"
+			echo "https://cloud-images.ubuntu.com/groovy/current/groovy-server-cloudimg-arm64-root.tar.xz"
 			;;
 		armv7l|armv8l)
-			echo "https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-armhf-root.tar.xz"
+			echo "https://cloud-images.ubuntu.com/groovy/current/groovy-server-cloudimg-armhf-root.tar.xz"
 			;;
 		x86_64)
-			echo "https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64-root.tar.xz"
+			echo "https://cloud-images.ubuntu.com/groovy/current/groovy-server-cloudimg-amd64-root.tar.xz"
 			;;
 	esac
 }
@@ -32,7 +32,6 @@ distro_setup() {
 	# Uncomment this to do system upgrade during installation.
 	# run_proot_cmd apt update
 	# run_proot_cmd apt upgrade -yq
-	run_proot_cmd apt update
-        run_proot_cmd apt update -yq
-        run_proot_cmd apt install sudo -yq
+
+	:
 }
