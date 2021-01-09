@@ -1,7 +1,7 @@
 # Toolloa
 >ToolLOA is a modified version of proot-distro made to make linux installation for education purpose easier
-for termux
-> Basically my modded version proot-distro
+for termux.
+> Basically my modded version of proot-distro
 
 ###### see here latest mods [ Unstable ]
 https://github.com/SaicharanKandukuri/Toolloa
