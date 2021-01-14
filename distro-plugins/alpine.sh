@@ -34,8 +34,4 @@ distro_setup() {
 	run_proot_cmd apk update
         run_proot_cmd apk upgrade
         run_proot_cmd apk add bash
-
-
-
-	
 }

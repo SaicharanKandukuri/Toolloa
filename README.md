@@ -6,6 +6,7 @@ for termux.
 ###### see here latest mods [ Unstable ]
 https://github.com/SaicharanKandukuri/Toolloa
 
+
 # Installation
 To install dependencies first upgrade your termux packages
 ```bash
@@ -41,7 +42,9 @@ toolloa install Ubuntu
 ```
 ###### see in below brackets for distro-alias.
 ## Avalible distros
-- [x] ubuntu 20.04 focal (ubuntu)
+- [x] ubuntu 20.10 groovy (groovy)
+- [x] ubuntu 20.04 focal (focal)
+- [x] ubuntu 18.04 bionic (bionic)
 - [x] kali nethunter-rootless (nethunter)
 - [x] alpine (alpine)
 - [x] arch Linux (archlinux)
