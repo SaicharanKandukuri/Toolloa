@@ -47,7 +47,7 @@ toolloa list
 ```bash
 toolloa reset bionic
 ```
-> - `reset` argument reinstalles distro by wiping previous installation ( all your data will get lost )
+> - `reset` argument reinstalles distro by wiping previous installation ( all your data will get lost ) (dosen\`t effect your internal storage)
 
 ## To remove installed distro
 ```bash
