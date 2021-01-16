@@ -36,9 +36,9 @@ toolloa install <distro-alias>
 ```bash
 toolloa login <distro-alias>
 ```
-###### For example: if you want to install Ubuntu then command looks like
+###### For example: if you want to install Ubuntu bionic (18.04) then command looks like
 ```bash
-toolloa install Ubuntu
+toolloa install bionic
 ```
 ###### see in below brackets for distro-alias.
 ## Avalible distros
@@ -48,6 +48,9 @@ toolloa install Ubuntu
 - [x] kali nethunter-rootless (nethunter)
 - [x] alpine (alpine)
 - [x] arch Linux (archlinux)
+
+> - Old builds like Ubuntu bionic are recomended to install cause Android blocks important syscalls in newer builds like (ubuntu(groovy,focal) , kali nethunter) which lead to problems like kde-desktop crash and etc. Be sure to notice me in issues if you find any problems except `init` dependent in newer builds.
+
 ## Tested & supported desktop environment
 - [x] xfce4
 - [x] mate
