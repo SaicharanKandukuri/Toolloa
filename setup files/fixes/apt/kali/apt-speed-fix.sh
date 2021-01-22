@@ -4,9 +4,7 @@
 
 #######################################
 ## Test results
-## Log from an Indian toolloa user
-## apt speed before -> ~ 120kb/s .max
-## apt speed after -> ~ 1025kb/s .max
+
 
 
 
